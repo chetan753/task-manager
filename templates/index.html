@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <title>To-do List</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+        <div class="nav-bar">
+            <div class="task-btn" ><a href="/">📋Taskly</a></div>
+            <div class="view-btn"><a href="/view">👁️View Tasks</a></div>
+            <div class="pen-btn"><a href="/pen">⏳Pending Tasks</a></div>
+            <div class="com-btn"><a href="/com">✅Completed Task</a></div>
+        </div>
+        <div class="card">
+            <form method="POST">
+                <h3 style="font-size: 30px;">📋 Taskly</h3>
+                <input class="input-box" placeholder="✏️Add Task here..." name="task">
+                <button class="btn1" type="submit" name="click">➕Add Task</button>
+                <h2 class="result">{{ result }}</h2>
+            </form>
+        </div>
+    </body>
+</html>

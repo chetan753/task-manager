@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <title>View Tasks</title>
+        <link rel="stylesheet" href="{{ url_for('static',filename='style.css')}}">
+        <div class="nav-bar">
+            <div class="task-btn" ><a href="/">📋Taskly</a></div>
+            <div class="view-btn"><a href="/view">👁️View Tasks</a></div>
+            <div class="pen-btn"><a href="/pen">⏳Pending Tasks</a></div>
+            <div class="com-btn"><a href="/com">✅Completed Task</a></div>
+        </div>
+        <form method="POST" style="color:white;">
+            <a class="btn-clear" href="/clear">Clear All</a>
+            <div class="view-task">
+                <h2>My Tasks</h2>
+
+                <table border="1" cellpadding="8" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th style="text-align: center;">#</th>
+                            <th style="text-align: center;">Task</th>
+                            <th style="text-align: center;">Status</th>
+                            <th style="text-align: center;">Actions</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    {% for i in task %}
+                    <tr>
+                        <td style="text-align: center;">{{ i[0] }}</td>
+                        <td style="text-align: center;">{{ i[1] }}</td>
+                        {% if i[2] == "PENDING" %}
+                            <td><span class="pending"><span class="flip">⏳</span>{{ i[2] }}</span></td>
+                        {% else %}
+                            <td><span class="done"><span class="pop">✅</span>{{ i[2] }}</span></td>
+                        {% endif %}    
+                        <td style="text-align: center;">
+                            <a class="btn-delete" href="/delete/{{ i[0] }}">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+</body>
+</html>
+
+</tbody>
+        </form>
+    </body>
+</html>
